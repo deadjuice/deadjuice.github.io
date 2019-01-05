@@ -1,0 +1,83 @@
+/* General UI */
+.ui.card {
+    padding: 1em;
+}
+
+h1.ui.header {
+    /* The semantic sheet is a thorn in my side */
+    margin: 1em 0 0 0 !important;
+    font-size: 3rem;
+}
+
+h3.ui.header {
+    color: #888888;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+/* Search Bar */
+.ui.category.search {
+    margin: 2rem auto 1rem auto;
+}
+.ui.icon.input {
+    width: 100%;
+}
+
+.ui.icon.input .search.icon {
+    right: 1rem;
+}
+
+/* For the App Grid */
+#apps {
+    width: 100%;
+}
+
+#apps .header {
+    padding-bottom: 1em;
+}
+
+#apps .row {
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+#apps a.five.wide.column {
+    flex-direction: row;
+}
+
+#apps i.large.icon {
+    flex-grow: 0;
+    align-self: center;
+}
+
+/* Darkness */
+#darkmode {
+    margin-top: 1.5rem;
+}
+
+#darkmode.active {
+    /* Semantic UI being annoying, again */
+    background-color: #218dba!important;
+}
+
+body.dark {
+    background-color: #333333;
+    color: #CCCCCC;
+}
+
+.dark a {
+    color: #85b7e8;
+}
+
+.dark .ui.card {
+    background-color: #222222;
+    box-shadow: none;
+}
+
+.dark .ui.list>.item .description {
+    color: #CCCCCC;
+}
+
+.dark h1.ui.header {
+    color: #AAAAAA;
+}
