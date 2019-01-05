@@ -73,6 +73,7 @@ function sendQuery(e) {
 }
 
 /* === MAIN EXECUTION === */
+
 // Set event listener for search
 document.getElementById("searchbar").onkeypress = sendQuery;
 writeCurrentTime();
