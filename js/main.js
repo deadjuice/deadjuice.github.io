@@ -1,6 +1,28 @@
 /* === GENERAL UTILITY === */
 
 /**
+ * Execute a CORS-anywhere GET request
+ * @param {string} url
+ */
+function doCORSGet(url) {
+    url = url || "";
+    const corsApiUrl = 'https://cors-anywhere.herokuapp.com/';
+    var req = new XMLHttpRequest();
+    req.open('GET', corsApiUrl + url);
+
+    req.onload = function() {
+        const outputStr = `[${req.status} ${req.statusText}] ${req.responseText || ''}`;
+        console.log(outputStr);
+    };
+    req.onerror = function() {
+        const errorStr = `[ERROR] Code ${req.status} - ${req.statusText} \n\n ${req.responseText || ''}`;
+        console.log(errorStr);
+    };
+
+    req.send();
+}
+
+/**
  * Gives a human-readable date string, given a date object
  * @param {Date} time
  * @returns {string}
@@ -8,10 +30,12 @@
 function generateTimeString(time) {
     const monthNames = ['January', 'February', 'March',
         'April', 'May', 'June', 'July', 'August', 'September',
-        'October', 'November', 'December'];
+        'October', 'November', 'December'
+    ];
 
     const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-        'Thursday', 'Friday', 'Saturday'];
+        'Thursday', 'Friday', 'Saturday'
+    ];
 
     const thisMonth = time.getMonth();
     const dayOfMonth = time.getDate();
@@ -38,7 +62,7 @@ function writeTodaysDate() {
 function writeCurrentTime() {
     let timeElement = document.getElementById("time");
     const rightNow = new Date();
-    
+
     // This is a really terrible way to get the time
     const clock = rightNow.toString().split(" ")[4];
     timeElement.innerHTML = clock;
@@ -64,7 +88,7 @@ function sendQuery(e) {
     var keyCode = e.keyCode || e.which;
 
     // User pressed return key
-    if (keyCode == '13'){
+    if (keyCode == '13') {
         let queryString = "https://duckduckgo.com/?q=";
         let args = (this.value).split(" ").join("+");
         window.open(`${queryString}${args}`);
